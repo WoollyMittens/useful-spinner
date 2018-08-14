@@ -1,4 +1,4 @@
-# spinner.js: Product spinner with innertia.
+# spinner.js: Product spinner with inertia.
 
 A touch controlled product spinner with inertia.
 
