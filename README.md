@@ -23,7 +23,7 @@ This include can be added to the header or placed inline before the script is in
 ```javascript
 var spinner = new Spinner({
 	'element': document.querySelector('.platform-spin'),
-	'path': './{i}.jpg',
+	'path': 'img/img_{i}.jpg',
 	'min': 100,
 	'max': 129,
 	'rot': 0.93,
