@@ -61,17 +61,21 @@ Spinner.prototype.Main = function(config, context) {
 		if (!/busy|active/.test(this.config.element.className)) {
 			// set the component as busy
 			this.config.element.className = this.config.element.className.replace(/ waiting/g, ' busy');
-			// insert all the frames
-			for (var a = this.config.min; a <= this.config.max; a += 1) {
-				// calculate the index
-				var index = a - this.config.min;
-				// create the image
-				this.assets[index] = document.createElement('img');
-				this.assets[index].setAttribute('src', this.config.path.replace(/{i}/g, a));
-				this.assets[index].addEventListener('load', this.onAssetsComplete.bind(this));
-				// insert it
-				this.config.element.appendChild(this.assets[index]);
-			}
+			// wait for a redraw
+			var _this = this;
+			window.requestAnimationFrame(function() {
+				// insert all the frames
+				for (var a = _this.config.min; a <= _this.config.max; a += 1) {
+					// calculate the index
+					var index = a - _this.config.min;
+					// create the image
+					_this.assets[index] = document.createElement('img');
+					_this.assets[index].setAttribute('src', _this.config.path.replace(/{i}/g, a));
+					_this.assets[index].addEventListener('load', _this.onAssetsComplete.bind(_this));
+					// insert it
+					_this.config.element.appendChild(_this.assets[index]);
+				}
+			});
 		}
 	};
 
