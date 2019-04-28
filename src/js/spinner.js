@@ -34,5 +34,5 @@ var Spinner = function (config) {
 };
 
 // return as a require.js module
-if (typeof define != 'undefined') define(['spinner'], function () { return Spinner });
+if (typeof define != 'undefined') define([], function () { return Spinner });
 if (typeof module != 'undefined') module.exports = Spinner;

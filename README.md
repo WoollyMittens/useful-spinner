@@ -9,13 +9,29 @@ Try the <a href="http://www.woollymittens.nl/default.php?url=useful-spinner">dem
 The stylesheet is best included in the header of the document.
 
 ```html
-<link rel="stylesheet" href="./css/spinner.css"/>
+<link rel="stylesheet" href="css/spinner.css"/>
 ```
 
 This include can be added to the header or placed inline before the script is invoked.
 
 ```html
-<script src="./js/spinner.js"></script>
+<script src="js/spinner.js"></script>
+```
+
+Or use [Require.js](https://requirejs.org/).
+
+```js
+requirejs([
+	'js/spinner.js'
+], function(Spinner) {
+	...
+});
+```
+
+Or import into an MVC framework.
+
+```js
+var Spinner = require('js/spinner.js');
 ```
 
 ## How to start the script
